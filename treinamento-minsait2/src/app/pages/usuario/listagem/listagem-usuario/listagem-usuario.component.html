@@ -1,0 +1,30 @@
+<app-page-title tituloPagina="Usuários"></app-page-title>
+<hr>
+<div class="container">
+    <app-action-button-default nomeBotao="Novo" url="{{url}}" ></app-action-button-default>
+    <div class="container mt-4">
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Status</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <th scope="row">{{usuario.id}}</th>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.idade}}</td>
+            <td>{{usuario.ativo ? "Ativo" : "Desativado"}}</td>
+            <td>
+              <button type="button" class="btn btn-danger btn-sm">Remover</button>
+              <button type="button" class="btn btn-secondary ms-2 btn-sm">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
