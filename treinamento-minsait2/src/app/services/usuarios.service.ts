@@ -16,13 +16,23 @@ export class UsuariosService {
     return this.http.get<IUsuarios[]>(this.url);
   }
 
+  buscarUmUsuario(id: number)
+  {
+    return this.http.get<IUsuarios[]>(this.url + "/" + id);
+  }
+
   cadastrarUsuarios(usuario: IUsuarios)
   {
     return this.http.post<IUsuarios[]>(this.url, usuario);
   }
 
+  editarUsuarios(usuario: IUsuarios, id: number)
+  {
+    return this.http.put<IUsuarios[]>(`${this.url}/${id}`, usuario);
+  }
+
   removerUsuarios(id: number)
   {
-    return this.http.delete<IUsuarios[]>('${this.url}/${id}');
+    return this.http.delete<IUsuarios[]>(`${this.url}/${id}`);
   }
 }

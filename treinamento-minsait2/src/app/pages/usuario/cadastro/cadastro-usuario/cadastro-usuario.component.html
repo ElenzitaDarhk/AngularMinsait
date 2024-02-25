@@ -1,9 +1,9 @@
-<form [formGroup]="usuarioForm">
+<form [formGroup]="usuarioForm" (submit)="acaoBotao()">
     <div class="row">
       <div class="col">
         <div class="mb-3">
           <label for="nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nome" formControlName="nome" >
+          <input type="text" class="form-control" id="nome" formControlName="nome">
         </div>
       </div>
       <div class="col">
@@ -13,5 +13,5 @@
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-primary"[disabled]="usuarioForm.invalid">Cadastrar</button>
+    <button type="submit" class="btn btn-primary"[disabled]="usuarioForm.invalid">{{nomeBotao}}</button>
   </form>
