@@ -52,21 +52,12 @@ export class CadastroUsuarioComponent {
 
   carregarCamposEdicao(id: any)
   {
-        this.usuarioService.buscarTodosUsuarios().subscribe
+        this.usuarioService.buscarUmUsuario(id).subscribe
         (
-          usuarios =>{ this.usuarios = usuarios}
+          us =>{
+            this.usuarioForm.setValue({nome: us.nome, idade: us.idade})
+          }
           ,error => {console.error(error)}
-      );
-
-      this.usuarios = 
-      this.usuarios.filter(usuarioLista => usuarioLista.id == id)
-
-      this.usuarios.forEach(us =>
-        {
-          console.log(us);
-          this.usuarioForm.setValue({nome: us.nome, idade: us.idade})
-          this.id = us.id;
-        }
       );
 
       console.log(this.id);
@@ -81,7 +72,7 @@ export class CadastroUsuarioComponent {
       this.editarUsuarios(this.id);
     }
     else{
-      console.log("Editar");
+      console.log("Cadastrar");
       this.cadastrarUsuarios();
     }
   }

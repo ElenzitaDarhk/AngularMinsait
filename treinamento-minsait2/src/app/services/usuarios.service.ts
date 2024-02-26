@@ -18,7 +18,7 @@ export class UsuariosService {
 
   buscarUmUsuario(id: number)
   {
-    return this.http.get<IUsuarios[]>(this.url + "/" + id);
+    return this.http.get<IUsuarios>(this.url + "/" + id);
   }
 
   cadastrarUsuarios(usuario: IUsuarios)
@@ -28,7 +28,7 @@ export class UsuariosService {
 
   editarUsuarios(usuario: IUsuarios, id: number)
   {
-    return this.http.put<IUsuarios[]>(`${this.url}/${id}`, usuario);
+    return this.http.put<IUsuarios>(`${this.url}/${id}`, usuario);
   }
 
   removerUsuarios(id: number)
