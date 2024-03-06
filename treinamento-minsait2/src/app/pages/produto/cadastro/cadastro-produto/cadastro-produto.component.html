@@ -1,1 +1,29 @@
-<p>cadastro-produto works!</p>
+<form [formGroup]="produtoForm" (submit)="acaoBotao()">
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="nome" formControlName="nome">
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="codigoBarras" class="form-label">Cód. Barras</label>
+          <input type="text" class="form-control" id="codigoBarras" formControlName="codigoBarras">
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="quantidade" class="form-label">Quantidade</label>
+          <input type="number" class="form-control" id="quantidade" formControlName="quantidade">
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="preco" class="form-label">Preço</label>
+          <input type="number" class="form-control" id="preco" formControlName="preco" mask="0000000,00">
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary"[disabled]="produtoForm.invalid">{{nomeBotao}}</button>
+  </form>
